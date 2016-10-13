@@ -37,8 +37,17 @@ Example queries on the Chinook sample SQLite database.
   ORDER BY InvoiceId ASC
   `
 
+- 8. Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+  `SELECT Invoice.Total,
+  Customer.FirstName || ' ' || Customer.LastName AS FullName,
+  Employee.FirstName || ' ' || Employee.LastName AS AgentName,
+  Invoice.BillingCountry
+  FROM Invoice
+  JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+  JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+  ORDER BY Total ASC
+  `
 
-- Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
 - How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
 - Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
 - Provide a query that includes the track name with each invoice line item.
