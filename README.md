@@ -71,6 +71,14 @@ Example queries on the Chinook sample SQLite database.
   `
 
 - Provide a query that includes the purchased track name AND artist name with each invoice line item.
+  `SELECT InvoiceLine.InvoiceLineId, Track.Name as Track, Artist.Name as Artist
+  FROM InvoiceLine
+  JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+  JOIN Album ON Track.AlbumId = Album.AlbumId
+  JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  ORDER BY InvoiceLineId ASC
+  `
+
 - Provide a query that shows the # of invoices per country. HINT: GROUP BY
 - Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resultant table.
 - Provide a query that shows all the Tracks, but displays no IDs. The resultant table should include the Album name, Media type and Genre.
