@@ -84,7 +84,15 @@ Example queries on the Chinook sample SQLite database.
   GROUP BY BillingCountry
   `
 
-- Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resultant table.
+- 14. Provide a query that shows the total number of tracks in each playlist. The Playlist name should be included on the resultant table.
+  `SELECT Playlist.Name AS Playlist,
+  Count(Track.TrackId) AS Tracks
+  FROM Playlist
+  JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId
+  JOIN Track ON PlaylistTrack.TrackId = Track.TrackId
+  GROUP BY Playlist
+  `
+
 - Provide a query that shows all the Tracks, but displays no IDs. The resultant table should include the Album name, Media type and Genre.
 - Provide a query that shows all Invoices but includes the # of invoice line items.
 - Provide a query that shows total sales made by each sales agent.
