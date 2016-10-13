@@ -70,7 +70,7 @@ Example queries on the Chinook sample SQLite database.
   ORDER BY InvoiceLineId ASC
   `
 
-- Provide a query that includes the purchased track name AND artist name with each invoice line item.
+- 12. Provide a query that includes the purchased track name AND artist name with each invoice line item.
   `SELECT InvoiceLine.InvoiceLineId, Track.Name as Track, Artist.Name as Artist
   FROM InvoiceLine
   JOIN Track ON InvoiceLine.TrackId = Track.TrackId
@@ -79,7 +79,11 @@ Example queries on the Chinook sample SQLite database.
   ORDER BY InvoiceLineId ASC
   `
 
-- Provide a query that shows the # of invoices per country. HINT: GROUP BY
+- 13. Provide a query that shows the # of invoices per country. HINT: GROUP BY
+  `SELECT BillingCountry, Count(InvoiceId) AS Invoices FROM Invoice
+  GROUP BY BillingCountry
+  `
+
 - Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resultant table.
 - Provide a query that shows all the Tracks, but displays no IDs. The resultant table should include the Album name, Media type and Genre.
 - Provide a query that shows all Invoices but includes the # of invoice line items.
