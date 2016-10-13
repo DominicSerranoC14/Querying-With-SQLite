@@ -53,10 +53,16 @@ Example queries on the Chinook sample SQLite database.
   WHERE InvoiceDate LIKE '2009%' OR InvoiceDate LIKE '2011%'
   `
 
-- 9.2What are the respective total sales for each of those years?
-  ``
+- 9.2 What are the respective total sales for each of those years?
+  `SELECT Sum(Total), Count(InvoiceDate) FROM Invoice
+  WHERE InvoiceDate LIKE '2009%' OR InvoiceDate LIKE '2011%'
+  `
 
-- Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
+- 10. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
+  `SELECT InvoiceId, Count(InvoiceLineId) as LineItemQty FROM InvoiceLine
+  WHERE InvoiceId = 37
+  `
+
 - Provide a query that includes the track name with each invoice line item.
 - Provide a query that includes the purchased track name AND artist name with each invoice line item.
 - Provide a query that shows the # of invoices per country. HINT: GROUP BY
