@@ -41,14 +41,21 @@ Example queries on the Chinook sample SQLite database.
   `SELECT Invoice.Total,
   Customer.FirstName || ' ' || Customer.LastName AS FullName,
   Employee.FirstName || ' ' || Employee.LastName AS AgentName,
-  Invoice.BillingCountry
+  Invoice.BillingCountryg
   FROM Invoice
   JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
   JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
   ORDER BY Total ASC
   `
 
-- How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
+- 9.1 How many Invoices were there in 2009 and 2011?
+  `SELECT Count(InvoiceDate) FROM Invoice
+  WHERE InvoiceDate LIKE '2009%' OR InvoiceDate LIKE '2011%'
+  `
+
+- 9.2What are the respective total sales for each of those years?
+  ``
+
 - Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
 - Provide a query that includes the track name with each invoice line item.
 - Provide a query that includes the purchased track name AND artist name with each invoice line item.
