@@ -1,23 +1,29 @@
 # Querying-With-SQLite
 Example queries on the Chinook sample SQLite database.
 
-- Provide a query showing Customers (just their full names, customer ID and country) who are not in the US.
+- 1. Provide a query showing Customers (just their full names, customer ID and country) who are not in the US.
 
   `SELECT  FirstName || ' ' || LastName as 'Fullname', CustomerId, Country FROM Customer
   WHERE Country != 'USA'`
 
-- Provide a query only showing the Customers from Brazil.
+- 2. Provide a query only showing the Customers from Brazil.
 
   `SELECT * FROM Customer
   WHERE Country = 'Brazil'`
 
-- Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
+- 3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
   `SELECT Customer.FirstName || ' ' || Customer.LastName as 'CustomerName', Invoice.InvoiceId, Invoice.InvoiceDate, Invoice.BillingCountry
   FROM Invoice
   JOIN Customer ON Customer.CustomerId = Invoice.InvoiceId`
 
-- Provide a query showing only the Employees who are Sales Agents.
-- Provide a query showing a unique list of billing countries from the Invoice table.
+- 4. Provide a query showing only the Employees who are Sales Agents.
+  `SELECT * FROM Employee
+  WHERE "Title" = "Sales Support Agent"`
+
+- 5. Provide a query showing a unique list of billing countries from the Invoice table.
+  `SELECT DISTINCT BillingCountry FROM Invoice
+  `
+
 - Provide a query showing the invoices of customers who are from Brazil.
 - Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
 - Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
