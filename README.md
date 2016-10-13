@@ -49,13 +49,13 @@ Example queries on the Chinook sample SQLite database.
   `
 
 - 9.1 How many Invoices were there in 2009 and 2011?
-  `SELECT Count(InvoiceDate) FROM Invoice
-  WHERE InvoiceDate LIKE '2009%' OR InvoiceDate LIKE '2011%'
+  `SELECT Sum(Total), Count(InvoiceDate) FROM Invoice
+  WHERE InvoiceDate LIKE '2009%'
   `
 
 - 9.2 What are the respective total sales for each of those years?
   `SELECT Sum(Total), Count(InvoiceDate) FROM Invoice
-  WHERE InvoiceDate LIKE '2009%' OR InvoiceDate LIKE '2011%'
+  WHERE InvoiceDate LIKE '2011%'
   `
 
 - 10. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
