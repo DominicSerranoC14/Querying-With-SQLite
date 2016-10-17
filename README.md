@@ -54,13 +54,12 @@ Example queries on the Chinook sample SQLite database.
   ORDER BY Total ASC
   `
 
-9.1 How many Invoices were there in 2009 and 2011?
+9. How many Invoices were there in 2009 and 2011?
+  What are the respective total sales for each of those years?
 
   `SELECT Sum(Total), Count(InvoiceDate) FROM Invoice
   WHERE InvoiceDate LIKE '2009%'
   `
-
-9.2 What are the respective total sales for each of those years?
 
   `SELECT Sum(Total), Count(InvoiceDate) FROM Invoice
   WHERE InvoiceDate LIKE '2011%'
@@ -117,8 +116,14 @@ Example queries on the Chinook sample SQLite database.
   JOIN MediaType ON Track.MediaTypeId = Track.MediaTypeId
   JOIN Genre ON Track.GenreId = Genre.GenreId`
 
-  
+
 16. Provide a query that shows all Invoices but includes the # of invoice line items.
+
+  `SELECT *,
+  InvoiceLine.InvoiceLineId as LineItemNum
+  FROM Invoice
+  JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId`
+
 17. Provide a query that shows total sales made by each sales agent.
 18. Which sales agent made the most in sales in 2009?
 19. Which sales agent made the most in sales in 2010?
