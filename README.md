@@ -13,9 +13,9 @@ Example queries on the Chinook sample SQLite database.
 
 3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
 
-  `SELECT Customer.FirstName || ' ' || Customer.LastName as 'CustomerName', Invoice.InvoiceId, Invoice.InvoiceDate, Invoice.BillingCountry
-  FROM Invoice
-  JOIN Customer ON Customer.CustomerId = Invoice.InvoiceId`
+  `SELECT Customer.FirstName || ' ' || Customer.LastName as 'CustomerName',` `Invoice.InvoiceId, Invoice.InvoiceDate, Invoice.BillingCountry
+  FROM Invoice`
+  `JOIN Customer ON Customer.CustomerId = Invoice.InvoiceId`
 
 4. Provide a query showing only the Employees who are Sales Agents.
 
@@ -29,29 +29,29 @@ Example queries on the Chinook sample SQLite database.
 6. Provide a query showing the invoices of customers who are from Brazil.
 
   `SELECT Invoice.InvoiceId, Customer.Country
-  FROM Invoice
-  JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
-  WHERE "Country" = "Brazil"`
+  FROM Invoice`
+  `JOIN Customer ON Invoice.CustomerId = Customer.CustomerId`
+  `WHERE "Country" = "Brazil"`
 
 7. Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
 
   `SELECT Employee.FirstName || ' ' || Employee.LastName as FullName, Invoice.InvoiceId
-  FROM Employee
-  JOIN Customer ON Customer.SupportRepId = Employee.EmployeeId
-  JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
-  ORDER BY InvoiceId ASC
+  FROM Employee`
+  `JOIN Customer ON Customer.SupportRepId = Employee.EmployeeId`
+  `JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId`
+  `ORDER BY InvoiceId ASC
   `
 
 8. Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
 
   `SELECT Invoice.Total,
-  Customer.FirstName || ' ' || Customer.LastName AS FullName,
-  Employee.FirstName || ' ' || Employee.LastName AS AgentName,
-  Invoice.BillingCountryg
-  FROM Invoice
-  JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
-  JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
-  ORDER BY Total ASC
+  Customer.FirstName || ' ' || Customer.LastName AS FullName,`
+  `Employee.FirstName || ' ' || Employee.LastName AS AgentName,`
+  `Invoice.BillingCountryg
+  FROM Invoice`
+  `JOIN Customer ON Invoice.CustomerId = Customer.CustomerId`
+  `JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId`
+  `ORDER BY Total ASC
   `
 
 9. How many Invoices were there in 2009 and 2011?
@@ -74,19 +74,19 @@ Example queries on the Chinook sample SQLite database.
 11. Provide a query that includes the track name with each invoice line item.
 
   `SELECT InvoiceLine.InvoiceLineId, Track.Name
-  FROM InvoiceLine
-  JOIN Track ON InvoiceLine.TrackId = Track.TrackId
-  ORDER BY InvoiceLineId ASC
+  FROM InvoiceLine`
+  `JOIN Track ON InvoiceLine.TrackId = Track.TrackId`
+  `ORDER BY InvoiceLineId ASC
   `
 
 12. Provide a query that includes the purchased track name AND artist name with each invoice line item.
 
   `SELECT InvoiceLine.InvoiceLineId, Track.Name as Track, Artist.Name as Artist
-  FROM InvoiceLine
-  JOIN Track ON InvoiceLine.TrackId = Track.TrackId
-  JOIN Album ON Track.AlbumId = Album.AlbumId
-  JOIN Artist ON Album.ArtistId = Artist.ArtistId
-  ORDER BY InvoiceLineId ASC
+  FROM InvoiceLine`
+  `JOIN Track ON InvoiceLine.TrackId = Track.TrackId`
+  `JOIN Album ON Track.AlbumId = Album.AlbumId`
+  `JOIN Artist ON Album.ArtistId = Artist.ArtistId`
+  `ORDER BY InvoiceLineId ASC
   `
 
 13. Provide a query that shows the # of invoices per country. HINT: GROUP BY
@@ -99,10 +99,10 @@ Example queries on the Chinook sample SQLite database.
 
   `SELECT Playlist.Name AS Playlist,
   Count(Track.TrackId) AS Tracks
-  FROM Playlist
-  JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId
-  JOIN Track ON PlaylistTrack.TrackId = Track.TrackId
-  GROUP BY Playlist
+  FROM Playlist`
+  `JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId`
+  `JOIN Track ON PlaylistTrack.TrackId = Track.TrackId`
+  `GROUP BY Playlist
   `
 
 15. Provide a query that shows all the Tracks, but displays no IDs. The resultant table should include the Album name, Media type and Genre.
@@ -111,20 +111,23 @@ Example queries on the Chinook sample SQLite database.
   Album.Title as AlbumTitle,
   MediaType.Name as MediaType,
   Genre.Name as Genre  
-  From Track
-  JOIN Album ON Track.AlbumId = Album.AlbumId
-  JOIN MediaType ON Track.MediaTypeId = Track.MediaTypeId
-  JOIN Genre ON Track.GenreId = Genre.GenreId`
+  From Track`
+  `JOIN Album ON Track.AlbumId = Album.AlbumId`
+  `JOIN MediaType ON Track.MediaTypeId = Track.MediaTypeId`
+  `JOIN Genre ON Track.GenreId = Genre.GenreId`
 
 
 16. Provide a query that shows all Invoices but includes the # of invoice line items.
 
   `SELECT *,
   InvoiceLine.InvoiceLineId as LineItemNum
-  FROM Invoice
-  JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId`
+  FROM Invoice`
+  `JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId`
 
 17. Provide a query that shows total sales made by each sales agent.
+
+  ``
+
 18. Which sales agent made the most in sales in 2009?
 19. Which sales agent made the most in sales in 2010?
 20. Which sales agent made the most in sales over all?
