@@ -132,8 +132,33 @@ Example queries on the Chinook sample SQLite database.
   WHERE Employee.Title = 'Sales Support Agent'`
 
 18. Which sales agent made the most in sales in 2009?
+
+  `SELECT Employee.FirstName || ' ' || Employee.LastName as Employee,
+  Invoice.InvoiceId,
+  Sum(Invoice.Total)
+  FROM Employee
+  JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId
+  JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+  WHERE InvoiceDate LIKE '2009%'
+  GROUP BY Employee
+  `
+
 19. Which sales agent made the most in sales in 2010?
+
+  `SELECT Employee.FirstName || ' ' || Employee.LastName as Employee,
+  Invoice.InvoiceId,
+  Sum(Invoice.Total)
+  FROM Employee
+  JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId
+  JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+  WHERE Invoice.Date LIKE '2010%'
+  GROUP BY Employee
+  `
+
 20. Which sales agent made the most in sales over all?
+
+  
+
 21. Provide a query that shows the # of customers assigned to each sales agent.
 22. Provide a query that shows the total sales per country. Which country's customers spent the most?
 23. Provide a query that shows the most purchased track of 2013.
