@@ -167,6 +167,15 @@ Example queries on the Chinook sample SQLite database.
   `
 
 21. Provide a query that shows the # of customers assigned to each sales agent.
+
+  `SELECT
+  Employee.FirstName || ' ' || Employee.LastName as Agent,
+  Count(Customer.CustomerId) as Customers
+  FROM Employee
+  JOIN Customer ON Customer.SupportRepId = Employee.EmployeeId
+  GROUP BY Agent
+  `
+
 22. Provide a query that shows the total sales per country. Which country's customers spent the most?
 23. Provide a query that shows the most purchased track of 2013.
 24. Provide a query that shows the top 5 most purchased tracks over all.
