@@ -13,7 +13,8 @@ Example queries on the Chinook sample SQLite database.
 
 3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
 
-  `SELECT Customer.FirstName || ' ' || Customer.LastName as 'CustomerName',` `Invoice.InvoiceId, Invoice.InvoiceDate, Invoice.BillingCountry
+  `SELECT Customer.FirstName || ' ' || Customer.LastName as 'CustomerName',`
+  `Invoice.InvoiceId, Invoice.InvoiceDate, Invoice.BillingCountry
   FROM Invoice`
   `JOIN Customer ON Customer.CustomerId = Invoice.InvoiceId`
 
@@ -126,7 +127,9 @@ Example queries on the Chinook sample SQLite database.
 
 17. Provide a query that shows total sales made by each sales agent.
 
-  ``
+  `SELECT Employee.FirstName || ' ' || Employee.LastName as FullName
+  FROM Employee
+  WHERE Employee.Title = 'Sales Support Agent'`
 
 18. Which sales agent made the most in sales in 2009?
 19. Which sales agent made the most in sales in 2010?
